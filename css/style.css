@@ -1,0 +1,437 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  background-color: #fff;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.content {
+  margin: 0 auto;
+  width: 95%;
+}
+
+/* utilizzato in index per sezione ultima dal blog */
+.content-light {
+  margin: 0 auto;
+  width: 65%;
+}
+
+.col-1 {
+  width: 8.33333%;
+}
+
+.col-2 {
+  width: 16.66666%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.33333%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-8 {
+  width: 66.66666%;
+}
+
+.col-10 {
+  width: 83.33333%;
+}
+
+.divider {
+  padding: 20px 0;
+}
+
+.spacer {
+  padding: 70px 0;
+}
+
+.spacer2 {
+  padding: 70px 0 35px 0;
+}
+
+.responsive {
+  height: auto;
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  word-wrap: break-word;
+}
+
+/* Typography */
+h1 {
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
+  letter-spacing: 0.05em;  /* Aumento leggero per migliorare la leggibilità */
+  margin-bottom: 55px;
+}
+
+h2 {
+  font-size: clamp(1.25rem, 2vw, 2.5rem);
+  width: 100%; /* non cambiare questo perché mi scombina la centratura */
+  margin-bottom: 25px; 
+}
+
+p {
+  font-size: clamp(0.8rem, 1vw, 1.25rem);
+  line-height: 1.6; /* corrisponde a 160% */
+  width: 100%; /* non cambiare questo perché mi scombina la centratura */
+  margin-bottom: 15px;
+}
+
+/* Style */
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* BUTTON */
+/* button classico */
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: crimson;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  color: #fff;
+  transition: 0.3s;
+  text-transform: uppercase;
+  box-shadow: 0 5px 60px rgba(0, 0, 0, 0.12);
+}
+
+.button i {
+  margin-right: 10px;
+}
+
+.button:hover {
+  background-color: white;
+  color: crimson;
+  border-color: crimson;
+  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.22);
+}
+
+/* Global CSS */
+/* HEADER */
+header {
+  background-color: lightskyblue;
+  /*position: fixed;  con js si modifica la struttura per lo scroll fisso lo metto quando scrollo perche altrimenti */
+  width: 100%;
+}
+
+.header-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Burger Button */
+.nav-bar {
+  display: none;
+}
+
+/* li della lista del sub-menu, serve per il menu a scomparsa, link per tornare indietro */
+.element-sub-back {
+  display: none;
+}
+
+/* Main Menu 6 sub-menu*/
+.current-menu {
+  background-color: blue;
+}
+
+.main-menu ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+.main-menu>ul>li {
+  position: relative;
+  transition: 0.3s; /* bg first menu in hover*/
+}
+
+/* opacity per usare la transition */
+.main-menu>ul>li>ul {
+  display: block;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: -50%;
+  z-index: -1; /* per evitare di selezionare i submenu quando non sono visibili */
+  transition: 0.3s; /* per la comparsa del sottomenu */
+}
+
+.main-menu>ul>li>a {
+  display: inline-block;
+  padding: 35px clamp(20px, 5vw, 40px);
+}
+
+/* first sub-menu down */
+.main-menu>ul>li:hover {
+  background-color: blue;
+}
+
+.main-menu>ul>li:hover>ul {
+  background-color: lightskyblue;
+  width:200%;
+  opacity: 1;
+  z-index: 2000;
+  visibility: visible;
+}
+
+.main-menu>ul>li:hover>ul li a {
+  display: inline-block;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.main-menu>ul>li:hover>ul li a:hover {
+  background-color: blue;
+}
+
+.main-menu ul li ul li ul {
+  display: block;
+}
+
+/* style second levele */
+.main-menu ul li ul li a {
+  display: inline-block;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* style third levele */
+.main-menu ul li ul li ul li a {
+  display: inline-block;
+  padding-left: 25px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  font-size: 17px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/* style fourth levele */
+.main-menu ul li ul li ul li ul li a {
+  display: inline-block;
+  padding-left: 35px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* style fifth levele */
+.main-menu ul li ul li ul li ul li ul li a {
+  display: inline-block;
+  padding-left: 45px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* style sixth levele */
+.main-menu ul li ul li ul li ul li ul li ul li a {
+  display: inline-block;
+  padding-left: 55px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  font-size: 16px;
+}
+
+.menu-item-has-children>a {
+  text-decoration: underline;
+  padding-bottom: 7px !important;
+  padding-top: 7px !important;
+}
+
+/* MAIN */
+/* Herosection */
+.herosection {
+  background: linear-gradient(rgba(37, 32, 73, .9), rgba(37, 32, 73, .45), rgba(37, 32, 73, .25));
+  width: 100%;
+  height: 100vh;
+}
+
+.text-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100vh;
+}
+
+.text-main h1 {
+  width: 40%;
+  margin-bottom: 35px;
+}
+
+.text-main p {
+  margin-bottom: 55px;
+  width: 35%;
+}
+
+
+@media only screen and (max-width: 1024px) {
+  .content,
+  .content-light {
+    margin: 0 4%;
+    width: 92%;
+  }
+
+  /* Riduzione spazi */
+  .spacer {
+    padding: 50px 0;
+  }
+
+  .bg-bands {
+    padding: 80px 0;
+  }
+
+  .pad-rid {
+    padding: 0 0 150px 0;
+  }
+
+  /* Burger Button */
+  /* Style Burger */
+  .nav-bar {
+    display: block;
+    padding: 20px 0;
+    cursor: pointer;
+    position: relative; /* serve per ancorare la X grafica in movimento */
+  }
+
+  .icon-bar {
+    display: block;
+    width: 30px;
+    height: 2px;
+    border-radius: 15px;
+    background-color: #000;
+    margin-bottom: 5px;
+  }
+  
+  .icon-bar:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* menu blocco primario a scomparsa */
+  ul.menu {
+    position: fixed;
+    left: -1100px;
+    top: 35px; /* da modificare con l'altezza della header*/
+    width: 100%;
+    height: auto;
+    z-index: 99910;
+    background-color: lightskyblue;
+    transition: .5s ease-in-out;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  ul.menu li a {
+    padding: 5px;
+  }
+
+  /* menu blocchi successivi */ 
+  .main-menu>ul.menu>li>ul {
+    position: fixed;
+    left: -1100px;
+    top: 0; /* da modificare con l'altezza della header*/
+    width: 100%;
+    height: auto;
+    z-index: 99910;
+    background-color: lightskyblue;
+    transition: .5s ease-in-out;
+    margin-right: 0;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .element-sub-back {
+    display: block;
+  }
+
+
+ /* jq per menu a scomparsa laterale */
+  .wide {
+    transform: translate(1100px, 0);
+  }
+
+  .no-scroll {
+    overflow: hidden;
+  }
+
+  /* js per burger ad x */
+  .trans-x-top {
+    position: absolute;
+    transform: rotate(45deg);
+    top: 50%;
+    right: 0;
+  }
+
+  .trans-x-bottom {
+    position: absolute;
+    transform: rotate(-45deg);
+    top: 50%;
+    Right: 0;
+  }
+
+  .hidden-bar {
+    display: none;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-6,
+  .col-8,
+  .col-10 {
+    width: 100%;
+  }
+  
+}
